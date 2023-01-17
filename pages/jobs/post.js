@@ -1,13 +1,13 @@
-import Form from "../../components/RegisterPage/Form";
-import Navbar from "../../components/RegisterPage/Navbar";
+import Form from "../../components/PostPage/Form";
+import Navbar from "../../components/PostPage/Navbar";
 import Footer from "../../components/HomePage/Footer";
 import Link from "next/link";
 import Head from "next/head";
-function register() {
+function post() {
 	return (
 		<>
 			<Head>
-				<title>Jobkart - Register</title>
+				<title>Jobkart - Post</title>
 				<meta
 					name="viewport"
 					content="width=device-width, initial-scale=1"
@@ -21,7 +21,7 @@ function register() {
 						<button className="btn  btn-wide mb-6 ">Back</button>
 					</Link>
 					<div className="uppercase font-bold text-2xl mb-6">
-						Add your profile to get hired
+						Let job seekers know you need them
 					</div>
 					<div className="mx-6">
 						<Form />
@@ -32,4 +32,4 @@ function register() {
 		</>
 	);
 }
-export default register;
+export default post;

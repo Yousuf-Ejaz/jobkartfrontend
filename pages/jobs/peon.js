@@ -1,13 +1,14 @@
 import Form from "../../components/RegisterPage/Form";
-import Navbar from "../../components/RegisterPage/Navbar";
+import Navbar from "../../components/JobsPage/Navbar";
 import Footer from "../../components/HomePage/Footer";
 import Link from "next/link";
 import Head from "next/head";
+import JobList from "../../components/JobsPage/JobList";
 function register() {
 	return (
 		<>
 			<Head>
-				<title>Jobkart - Register</title>
+				<title>Jobkart - Peon</title>
 				<meta
 					name="viewport"
 					content="width=device-width, initial-scale=1"
@@ -20,11 +21,11 @@ function register() {
 					<Link href="/">
 						<button className="btn  btn-wide mb-6 ">Back</button>
 					</Link>
-					<div className="uppercase font-bold text-2xl mb-6">
-						Add your profile to get hired
+					<div className="uppercase font-bold text-2xl mx-auto mb-6 text-center">
+						Peon
 					</div>
 					<div className="mx-6">
-						<Form />
+						<JobList jobCategory="PEON" />
 					</div>
 				</div>
 				<Footer />

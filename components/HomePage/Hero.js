@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./../../styles/Hero.module.css";
 
 function Hero() {
@@ -29,10 +30,12 @@ function Hero() {
 							</div>
 							<ul className="menu bg-base-100 w-56 p-2 rounded-box">
 								<li>
-									<a>Available candidates</a>
+									<Link href="/candidates">
+										Available candidates
+									</Link>
 								</li>
 								<li>
-									<a>Post New Job</a>
+									<Link href="/jobs/post">Post New Job</Link>
 								</li>
 							</ul>
 						</div>
@@ -42,17 +45,20 @@ function Hero() {
 							</div>
 							<ul className="menu bg-base-100 w-56 p-2 rounded-box">
 								<li>
-									<a>Register</a>
+									<Link href="/user/register">Register</Link>
 								</li>
 								<li>
-									<a>Apply Now</a>
+									<Link href="/#categories">Apply Now</Link>
 								</li>
 							</ul>
 						</div>
 					</div>
-					<button className="btn btn-wide rounded-full text-gray-600 bg-white border-white hover:bg-white hover:border-white font-bold text-lg">
+					<Link
+						href="/#categories"
+						className="btn btn-wide rounded-full text-gray-600 bg-white border-white hover:bg-white hover:border-white font-bold text-lg"
+					>
 						Explore
-					</button>
+					</Link>
 				</div>
 			</div>
 		</div>

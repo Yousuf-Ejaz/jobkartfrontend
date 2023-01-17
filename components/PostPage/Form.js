@@ -3,15 +3,14 @@ import axios from "axios";
 
 function Form() {
 	const [formData, setFormData] = useState({
-		username: "",
-		phoneNumber: "",
-		aadharNumber: "",
+		title: "",
+		recruiterEmailId: "",
+		recruiterPhoneNumber: "",
 		category: "Choose Category",
-		YOE: "",
-		otherSkills: "",
-		currentLocation: "",
-		availability: "",
-		messageForRecruiter: "",
+		description: "",
+		location: "",
+		offeredSalary: "",
+		numberOfPositions: "",
 	});
 
 	const handleChange = (event) => {
@@ -23,41 +22,38 @@ function Form() {
 		event.preventDefault();
 		try {
 			let newUser = {
-				username: formData.username,
-				phoneNumber: formData.phoneNumber,
-				aadharNumber: formData.aadharNumber,
-				category: formData.category,
-				YOE: formData.YOE,
-				otherSkills: formData.otherSkills,
-				currentLocation: formData.currentLocation,
-				availability: formData.availability,
-				messageForRecruiter: formData.messageForRecruiter,
+				title: formData.title,
+				recruiterEmailId: formData.recruiterEmailId,
+				recruiterPhoneNumber: formData.recruiterPhoneNumber,
+				category: englishCategory,
+				description: formData.description,
+				location: formData.location,
+				offeredSalary: formData.offeredSalary,
+				numberOfPositions: formData.numberOfPositions,
 			};
 			console.log(newUser);
 
 			axios
-				.post("http://localhost:3030/user/register", newUser)
+				.post("http://localhost:3030/jobs", newUser)
 				.then((response) => {
-					console.log("SUBMITTTING USER PROFILE", response);
+					console.log("Posting your Job", response);
 					const data = response.data;
 					setFormData({ data });
-					alert("Your profile is now visible to Recruiters");
+					alert("Job Posted");
 
 					setFormData({
-						username: "",
-						phoneNumber: "",
-						aadharNumber: "",
+						title: "",
+						recruiterEmailId: "",
+						recruiterPhoneNumber: "",
 						category: "Choose Category",
-						YOE: "",
-						otherSkills: "",
-						currentLocation: "",
-						availability: "",
-						messageForRecruiter: "",
+						description: "",
+						location: "",
+						offeredSalary: "",
+						numberOfPositions: "",
 					});
 				})
 				.catch((error) => {
 					console.log(error);
-					// alert("Invalid Input");
 				});
 			// handle success
 		} catch (err) {
@@ -66,15 +62,14 @@ function Form() {
 	};
 
 	const {
-		username,
-		phoneNumber,
-		aadharNumber,
+		title,
+		recruiterEmailId,
+		recruiterPhoneNumber,
 		category,
-		YOE,
-		otherSkills,
-		currentLocation,
-		availability,
-		messageForRecruiter,
+		description,
+		location,
+		offeredSalary,
+		numberOfPositions,
 	} = formData;
 
 	return (
@@ -82,9 +77,22 @@ function Form() {
 			<label>
 				<input
 					type="text"
-					name="username"
-					placeholder="Username"
-					value={username}
+					name="title"
+					placeholder="Your Name / Company Name"
+					value={title}
+					onChange={handleChange}
+					className="input input-bordered input-secondary w-full mb-3"
+					required
+				/>
+			</label>
+			<br />
+
+			<label>
+				<input
+					type="email"
+					name="recruiterEmailId"
+					placeholder="Email"
+					value={recruiterEmailId}
 					onChange={handleChange}
 					className="input input-bordered input-secondary w-full mb-3"
 					required
@@ -94,7 +102,8 @@ function Form() {
 			<label>
 				<span
 					className={`label-text-alt text-red-500 ${
-						phoneNumber.length >= 10 || phoneNumber.length == 0
+						recruiterPhoneNumber.length >= 10 ||
+						recruiterPhoneNumber.length == 0
 							? `hidden`
 							: ``
 					}`}
@@ -103,35 +112,12 @@ function Form() {
 				</span>
 				<input
 					type="text"
-					name="phoneNumber"
-					placeholder="Phone Number"
+					name="recruiterPhoneNumber"
+					placeholder="Contact Number"
+					value={recruiterPhoneNumber}
 					maxLength="10"
-					value={phoneNumber}
 					onChange={handleChange}
 					className="input input-bordered input-secondary w-full mb-3"
-					required
-				/>
-			</label>
-			<br />
-			<label>
-				<span
-					className={`label-text-alt text-red-500 ${
-						aadharNumber.length >= 12 || aadharNumber.length == 0
-							? `hidden`
-							: ``
-					} `}
-				>
-					* Enter a 12 digit number {aadharNumber.length}
-				</span>
-				<input
-					type="text"
-					name="aadharNumber"
-					placeholder="Aadhar Number"
-					value={aadharNumber}
-					onChange={handleChange}
-					className="input input-bordered input-secondary w-full mb-3"
-					maxLength="12"
-					required
 				/>
 			</label>
 			<br />
@@ -156,61 +142,50 @@ function Form() {
 				<option> OTHERS </option>
 			</select>
 			<br />
-			<label>
-				<input
-					type="text"
-					name="YOE"
-					placeholder="Years of Experience"
-					value={YOE}
-					onChange={handleChange}
-					className="input input-bordered input-secondary w-full mb-3"
-					required
-				/>
-			</label>
-			<br />
-			<label>
-				<input
-					type="text"
-					name="otherSkills"
-					placeholder="Any Other Skill?"
-					value={otherSkills}
-					onChange={handleChange}
-					className="input input-bordered input-secondary w-full mb-3"
-				/>
-			</label>
-			<br />
-			<label>
-				<input
-					type="text"
-					name="currentLocation"
-					placeholder="Current Location"
-					value={currentLocation}
-					onChange={handleChange}
-					className="input input-bordered input-secondary w-full mb-3"
-					required
-				/>
-			</label>
-			<br />
-			<label>
-				<input
-					type="text"
-					name="availability"
-					placeholder="Date of Availability (YYYY/MM/DD)"
-					value={availability}
-					onChange={handleChange}
-					className="input input-bordered input-secondary w-full mb-3"
-					required
-				/>
-			</label>
-			<br />
 			<textarea
 				className="textarea textarea-secondary w-full mb-3"
-				placeholder="Anything you want to share with the recruiter..."
+				placeholder="Short Description"
 				as="textarea"
-				value={messageForRecruiter}
-				name="messageForRecruiter"
+				value={description}
+				name="description"
 				onChange={handleChange}
 			></textarea>
+			<br />
+			<label>
+				<input
+					type="text"
+					name="location"
+					placeholder="Location"
+					value={location}
+					onChange={handleChange}
+					className="input input-bordered input-secondary w-full mb-3"
+					required
+				/>
+			</label>
+			<br />
+			<label>
+				<input
+					type="text"
+					name="offeredSalary"
+					placeholder="Offered Salary (Per Month)"
+					value={offeredSalary}
+					onChange={handleChange}
+					className="input input-bordered input-secondary w-full mb-3"
+					required
+				/>
+			</label>
+			<br />
+			<label>
+				<input
+					type="text"
+					name="numberOfPositions"
+					placeholder="Number of Positions"
+					value={numberOfPositions}
+					onChange={handleChange}
+					className="input input-bordered input-secondary w-full mb-3"
+					required
+				/>
+			</label>
 			<br />
 
 			<div className="text-right">

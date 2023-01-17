@@ -1,7 +1,7 @@
 function Employer() {
 	return (
 		<div className={` h-[70vh] flex`}>
-			<div className="grid grid-rows-2 w-6/12 grid-cols-3 gap-8  text-center p-10">
+			<div className="grid grid-rows-2 w-6/12 grid-cols-3 gap-8  text-center p-10 ml-40">
 				<div className="bg-[#CE0197] flex pt-2 justify-center mask mask-squircle transition duration-200 ease-in-out">
 					<div className="self-center">
 						<img
@@ -64,7 +64,7 @@ function Employer() {
 					</div>
 				</div>
 			</div>
-			<div className={` w-1/2 hero`}>
+			<div className={` w-1/2 hero mr-44`}>
 				<div className="text-6xl mb-16 font-bold text-center text-[#9F01FF] ">
 					How we work for Employers
 				</div>

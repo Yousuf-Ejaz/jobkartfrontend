@@ -1,13 +1,13 @@
 import styles from "./../../styles/Seeker.module.css";
 function JobSeeker() {
 	return (
-		<div className={`${styles.bg} h-[70vh] flex`} id="hww">
-			<div className={` w-1/2 hero`}>
+		<div className={`${styles.bg} h-[70vh] flex `} id="hww">
+			<div className={` max-w-screen-md hero ml-32`}>
 				<div className="text-6xl mb-16 font-bold text-center text-white ">
 					How we work for Job Seekers
 				</div>
 			</div>
-			<div className="grid grid-rows-2 w-6/12 grid-cols-2 gap-8  text-center p-10">
+			<div className="grid grid-rows-2 w-6/12 grid-cols-2 gap-8  text-center p-10 max-w-screen-md mr-44">
 				<div className="bg-white flex pt-2 justify-center mask mask-squircle transition duration-200 ease-in-out">
 					<div className="self-center">
 						<img

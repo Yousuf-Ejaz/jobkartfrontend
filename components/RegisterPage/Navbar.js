@@ -22,38 +22,17 @@ function Navbar() {
 							</svg>
 						</label>
 					</div>
-					<a className="btn btn-ghost normal-case text-2xl">
+					<Link
+						className="btn btn-ghost normal-case text-2xl"
+						href="/"
+					>
 						JobKart
 						<span className="text-xs">&#174;</span>{" "}
-					</a>
+					</Link>
 				</div>
 				<div className="navbar-end">
 					<div className="navbar-center hidden lg:flex">
 						<ul className="menu menu-horizontal px-4 font-bold ">
-							<li>
-								<a
-									className="hover:text-green-500 active:bg-black"
-									href="#home"
-								>
-									Home
-								</a>
-							</li>
-							<li>
-								<Link
-									className="hover:text-green-500 active:bg-black "
-									href="#categories"
-								>
-									Categories
-								</Link>
-							</li>
-							<li>
-								<a
-									className="hover:text-green-500  active:bg-black"
-									href="#hww"
-								>
-									How we Work
-								</a>
-							</li>
 							<li>
 								<a
 									className="hover:text-green-500  active:bg-black"
@@ -64,9 +43,6 @@ function Navbar() {
 							</li>
 						</ul>
 					</div>
-					<Link className="btn" href="/user/register">
-						Register
-					</Link>
 				</div>
 			</div>
 		</div>
